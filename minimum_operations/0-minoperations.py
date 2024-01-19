@@ -16,7 +16,7 @@ def minOperations(n):
     result = 0
     for i in range(2, n + 1):
         while n % i == 0:
-            result += 1
+            result += i - 1
             n //= i
 
     return result
