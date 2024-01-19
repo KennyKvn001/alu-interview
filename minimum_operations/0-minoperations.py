@@ -13,7 +13,7 @@ def minOperations(n):
     if type(n) != int:
         return 0
 
-    if n < 2:
+    if n == 1:
         return 0
 
     result = 0
