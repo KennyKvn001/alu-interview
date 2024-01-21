@@ -16,9 +16,9 @@ def minOperations(n):
     def prime_factors(num):
         result = 0
         for i in range(2, int(num**0.5) + 1):
-            while n % i == 0:
+            while num % i == 0:
                 result += i
-                n //= i
+                num //= i
 
         if num > 1:
             result += n
