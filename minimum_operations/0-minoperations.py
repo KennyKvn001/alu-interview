@@ -14,7 +14,7 @@ def minOperations(n):
         return 0
 
     def prime_factors(num):
-        result = 0
+        result = []
         for i in range(2, int(num**0.5) + 1):
             while num % i == 0:
                 result += i
