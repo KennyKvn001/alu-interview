@@ -17,11 +17,11 @@ def minOperations(n):
         result = []
         for i in range(2, int(num**0.5) + 1):
             while num % i == 0:
-                result += i
+                result.append(i)
                 num //= i
 
         if num > 1:
-            result += n
+            result.append(num)
 
         return result
 
