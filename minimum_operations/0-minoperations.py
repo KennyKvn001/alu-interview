@@ -13,13 +13,17 @@ def minOperations(n):
     if n <= 1:
         return 0
 
-    result = 0
-    for i in range(2, int(n + 1)):
-        while n % i == 0:
-            result += i
-            n //= i
+    def prime_factors(num):
+        result = 0
+        for i in range(2, int(num**0.5) + 1):
+            while n % i == 0:
+                result += i
+                n //= i
 
-    if n > 1:
-        result += n
+        if num > 1:
+            result += n
 
-    return result
+        return result
+
+    result = prime_factors(n)
+    return sum(result)
