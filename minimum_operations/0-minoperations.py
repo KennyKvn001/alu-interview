@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-""" Minimumu operation"""
+"""Minimum operations"""
 import math
 
 
 def minOperations(n):
-    """Calculations"""
+    """Minimum operations"""
     if type(n) != int:
         return 0
 
