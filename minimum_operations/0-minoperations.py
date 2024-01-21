@@ -1,10 +1,10 @@
 #!/usr/bin/python3
+import math
 
 """ Minimumu operation, a method that calculates
     the fewest number of operations needed to result
     in exactly n H characters in the file.
 """
-import math
 
 def minOperations(n):
     """Calculates the fewest number of operations needed
