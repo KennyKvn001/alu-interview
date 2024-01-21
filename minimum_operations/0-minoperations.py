@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-""" Minimumu operation, a method that calculates
-    the fewest number of operations needed to result
-    in exactly n H characters in the file.
-"""
+""" Minimumu operation"""
 import math
 
 
