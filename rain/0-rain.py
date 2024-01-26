@@ -7,28 +7,27 @@ def rain(walls):
     """Function to find the maximum rain collected
     by a series of walls
     """
-    if type(walls) is not list or not all(type(n) is int for n in walls):
+    n = len(walls)
+
+    if n == 0:
         return 0
 
-    water_units = 0
-    L_wall_i = 0
-    walls_len = len(walls)
+    total_volume = 0
 
-    # stop at size - 2 since two adjacent walls can't hold water
-    for i in range(0, walls_len - 2):
-        # next wall that is non-zero height and begins new basin
-        if walls[i] > 0 and i >= L_wall_i:
-            # likewise, right wall must be at least 2 units from left wall
-            for j in range(i + 2, walls_len):
-                if walls[j] >= walls[i]:
-                    # water level can only be as high as lowest wall of basin
-                    water_level = walls[i]
+    # Find the highest element to the left of each element
+    highest_left = [0] * n
+    highest_left[0] = walls[0]
+    for i in range(1, n):
+        highest_left[i] = max(highest_left[i - 1], walls[i])
 
-                    for k in range(i + 1, j):
-                        water_units += water_level - walls[k]
+    # Find the highest wall to the right of each
+    highest_right = [0] * n
+    highest_right[-1] = walls[-1]
+    for i in range(n - 2, -1, -1):
+        highest_right[i] = max(highest_right[i + 1], walls[i])
 
-                    # right wall becomes left wall of next potential basin
-                    L_wall_i = j
-                    break
+    # Calculate the accumulated water element by element
+    for i in range(0, n):
+        total_volume += min(highest_left[i], highest_right[i]) - walls[i]
 
-    return water_units
+    return total_volume
